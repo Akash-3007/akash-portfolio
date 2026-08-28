@@ -1,20 +1,5 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  async headers() {
-    return [
-      {
-        source: "/og.jpg",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=86400, stale-while-revalidate=604800",
-          },
-          { key: "Access-Control-Allow-Origin", value: "*" },
-        ],
-      },
-    ];
-  },
-};
+const nextConfig: NextConfig = {};
 
 export default nextConfig;

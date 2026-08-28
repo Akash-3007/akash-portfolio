@@ -7,7 +7,6 @@ import {
   siteKeywords,
   siteTitle,
   websiteJsonLd,
-  ogImage,
 } from "@/lib/seo";
 import "./globals.css";
 
@@ -27,7 +26,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
   title: {
-    default: siteTitle,
+    default: `${profile.name} — BCA Student & Developer`,
     template: `%s · ${profile.name}`,
   },
   description: siteDescription,
@@ -57,13 +56,11 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "/",
     siteName: profile.name,
-    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: [ogImage],
   },
 };
 

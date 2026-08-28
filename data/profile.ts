@@ -13,7 +13,7 @@ function resolveSiteUrl() {
     return `https://${process.env.VERCEL_URL.replace(/\/$/, "")}`;
   }
 
-  return "https://your-domain-placeholder.example";
+  return "https://akash.kinjawadekar.in";
 }
 
 export const profile = {
