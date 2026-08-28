@@ -127,7 +127,7 @@ export default function Contact() {
                     key={social.name}
                     href={social.href}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="me noopener noreferrer"
                     className="text-sm text-zinc-400 transition-colors hover:text-white"
                   >
                     {social.name}

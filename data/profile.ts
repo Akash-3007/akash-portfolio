@@ -10,12 +10,14 @@ export const profile = {
   ],
   location: "Bengaluru, Karnataka, India",
   email: "akashkinjawadekar7@gmail.com",
-  // Replace with your real domain before deploying.
-  siteUrl: "https://your-domain-placeholder.example",
+  // Set NEXT_PUBLIC_SITE_URL on deploy (no trailing slash).
+  siteUrl:
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
+    "https://your-domain-placeholder.example",
   socials: {
     github: "https://github.com/Akash-3007",
     linkedin: "https://www.linkedin.com/in/akash-kinjawadekar-021683314/",
-    instagram: "https://www.instagram.com/akash3007_?igsi=MXZoYzlnMGE5enAwbg==",
+    instagram: "https://www.instagram.com/akash3007_/",
   },
   education: {
     institution: "Christ University",

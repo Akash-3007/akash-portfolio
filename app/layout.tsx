@@ -1,6 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { profile } from "@/data/profile";
+import {
+  personJsonLd,
+  siteDescription,
+  siteKeywords,
+  siteTitle,
+  websiteJsonLd,
+} from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -10,31 +17,71 @@ const mono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
-const description =
-  "Akash Kinjawadekar is a BCA student at Christ University, Bangalore, building strong computer science fundamentals and exploring software development, AI/ML, and the web.";
+export const viewport: Viewport = {
+  themeColor: "#0a0a0c",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
-  title: "Akash Kinjawadekar — BCA Student & Developer",
-  description,
+  title: {
+    default: siteTitle,
+    template: `%s · ${profile.name}`,
+  },
+  description: siteDescription,
+  keywords: siteKeywords,
+  authors: [{ name: profile.name, url: profile.siteUrl }],
+  creator: profile.name,
+  publisher: profile.name,
+  applicationName: profile.name,
+  category: "portfolio",
+  formatDetection: { email: false, telephone: false, address: false },
   alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Akash Kinjawadekar — BCA Student & Developer",
-    description,
+    title: siteTitle,
+    description: siteDescription,
     type: "website",
+    locale: "en_IN",
     url: "/",
+    siteName: profile.name,
   },
   twitter: {
-    card: "summary",
-    title: "Akash Kinjawadekar — BCA Student & Developer",
-    description,
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${mono.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black"
+        >
+          Skip to content
+        </a>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([personJsonLd(), websiteJsonLd()]),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

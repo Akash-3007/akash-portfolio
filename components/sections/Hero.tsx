@@ -86,14 +86,15 @@ export default function Hero() {
               className="text-balance text-5xl font-semibold leading-[0.95] tracking-[-0.04em] text-white sm:text-6xl md:text-7xl lg:text-8xl"
             >
               Hi, I&apos;m Akash.
+              <span className="sr-only"> Kinjawadekar, BCA student at Christ University</span>
             </motion.h1>
 
-            <motion.h2
+            <motion.p
               {...animationProps(0.2)}
               className="mt-6 max-w-3xl text-balance text-2xl font-medium leading-tight tracking-tight text-zinc-300 sm:text-3xl md:text-4xl"
             >
               Exploring software, AI, and the web.
-            </motion.h2>
+            </motion.p>
 
             <motion.p
               {...animationProps(0.3)}
@@ -138,7 +139,7 @@ export default function Hero() {
                   key={social.label}
                   href={social.href}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="me noopener noreferrer"
                   aria-label={social.label}
                   className="inline-flex h-10 min-w-10 items-center justify-center rounded-full border border-white/10 px-3 font-mono text-xs font-medium text-zinc-400 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/5 hover:text-white"
                 >
