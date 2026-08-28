@@ -6,11 +6,11 @@ import { profile } from "@/data/profile";
 export default function Education() {
   const e = profile.education;
   return (
-    <section id="education" className="scroll-mt-20 border-t border-line py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="education" className="scroll-mt-20 border-t border-line py-16 sm:py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading number="04" label="EDUCATION" title="Academic background" />
         <Reveal>
-          <div className="flex flex-col gap-6 rounded-xl border border-line bg-surface p-8 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-6 rounded-xl border border-line bg-surface p-5 sm:flex-row sm:items-center sm:justify-between sm:p-8">
             <div className="flex items-start gap-4">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-line text-accent">
                 <GraduationCap size={22} />

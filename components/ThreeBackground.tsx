@@ -65,19 +65,21 @@ export default function ThreeBackground() {
     let animationFrame = 0;
     let lastTime = performance.now();
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const isNarrow = window.matchMedia("(max-width: 768px)").matches;
+
+    const dpr = Math.min(window.devicePixelRatio || 1, isNarrow ? 1.5 : 2);
 
     const particles: Particle[] = [];
     const stars: Star[] = [];
     const orbs: Orb[] = [];
 
-    const particleCount = reducedMotion ? 80 : 260;
-    const starCount = reducedMotion ? 40 : 120;
-    const orbCount = reducedMotion ? 5 : 11;
+    const particleCount = reducedMotion ? 40 : isNarrow ? 70 : 260;
+    const starCount = reducedMotion ? 24 : isNarrow ? 40 : 120;
+    const orbCount = reducedMotion ? 4 : isNarrow ? 6 : 11;
 
     const resize = () => {
-      width = window.innerWidth;
-      height = window.innerHeight;
+      width = document.documentElement.clientWidth || window.innerWidth;
+      height = window.visualViewport?.height || window.innerHeight;
 
       canvas.width = width * dpr;
       canvas.height = height * dpr;
@@ -91,6 +93,7 @@ export default function ThreeBackground() {
     resize();
 
     window.addEventListener("resize", resize);
+    window.visualViewport?.addEventListener("resize", resize);
 
     const randomDepth = () => 0.15 + Math.random() * 1.6;
 
@@ -678,10 +681,8 @@ export default function ThreeBackground() {
 
     return () => {
       cancelAnimationFrame(animationFrame);
-      window.removeEventListener(
-        "resize",
-        resize,
-      );
+      window.removeEventListener("resize", resize);
+      window.visualViewport?.removeEventListener("resize", resize);
     };
   }, []);
 

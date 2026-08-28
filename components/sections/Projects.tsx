@@ -37,9 +37,9 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="border-t border-white/10 bg-transparent py-28"
+      className="border-t border-white/10 bg-transparent py-16 sm:py-24 lg:py-28"
     >
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
         {/* Section heading */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -55,7 +55,7 @@ export default function Projects() {
             04 — Projects
           </p>
 
-          <h2 className="mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+          <h2 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
             Things I&apos;m building.
           </h2>
 
@@ -78,7 +78,7 @@ export default function Projects() {
                 delay: index * 0.08,
                 ease: "easeOut" as const,
               }}
-              className={`group flex min-h-[320px] flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.04] sm:p-7 ${
+              className={`group flex min-h-[280px] flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.04] sm:min-h-[320px] sm:p-7 ${
                 project.featured ? "lg:col-span-2" : ""
               }`}
             >

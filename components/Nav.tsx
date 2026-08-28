@@ -34,7 +34,7 @@ export default function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)] transition-colors duration-300 ${
         scrolled
           ? "border-b border-line bg-background/80 backdrop-blur-md"
           : "bg-transparent"
@@ -42,7 +42,7 @@ export default function Nav() {
     >
       <nav
         aria-label="Primary"
-        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6"
+        className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:h-16 sm:px-6"
       >
         <a href="#main" className="font-mono text-sm font-medium tracking-widest">
           AK<span className="text-accent">.</span>
@@ -72,7 +72,8 @@ export default function Nav() {
             Let&apos;s Connect
           </a>
           <button
-            className="md:hidden"
+            type="button"
+            className="inline-flex h-11 w-11 items-center justify-center md:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -89,9 +90,9 @@ export default function Nav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-16 z-40 bg-background md:hidden"
+            className="fixed inset-0 top-[calc(3.5rem+env(safe-area-inset-top))] z-40 overflow-y-auto bg-background md:hidden"
           >
-            <ul className="flex flex-col gap-2 p-6">
+            <ul className="flex flex-col gap-2 p-6 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
               {links.map((l, i) => (
                 <motion.li
                   key={l.id}
@@ -108,6 +109,15 @@ export default function Nav() {
                   </a>
                 </motion.li>
               ))}
+              <li>
+                <a
+                  href="#contact"
+                  onClick={() => setOpen(false)}
+                  className="mt-4 inline-flex rounded-full border border-line px-5 py-3 text-base"
+                >
+                  Let&apos;s Connect
+                </a>
+              </li>
             </ul>
           </motion.div>
         )}

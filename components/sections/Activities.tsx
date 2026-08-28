@@ -3,8 +3,8 @@ import SectionHeading from "@/components/SectionHeading";
 
 export default function Activities() {
   return (
-    <section id="activities" className="scroll-mt-20 border-t border-line py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="activities" className="scroll-mt-20 border-t border-line py-16 sm:py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading number="07" label="COMMUNITY" title="Activities & communities" />
         <div className="grid gap-12 lg:grid-cols-2">
           <Reveal>

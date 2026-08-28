@@ -26,10 +26,10 @@ export default function Contact() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-500/10 blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[18rem] w-[18rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-500/10 blur-3xl sm:h-[30rem] sm:w-[30rem]"
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-28 sm:px-8 lg:px-12">
+      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
         <div className="mx-auto max-w-4xl text-center">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -50,7 +50,7 @@ export default function Contact() {
               delay: 0.08,
               ease: "easeOut" as const,
             }}
-            className="mt-5 text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl"
+            className="mt-5 text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl"
           >
             Let&apos;s build something useful.
           </motion.h2>
@@ -80,7 +80,7 @@ export default function Contact() {
               delay: 0.24,
               ease: "easeOut" as const,
             }}
-            className="group mt-10 inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-medium text-black transition-transform duration-200 hover:-translate-y-0.5"
+            className="group mt-8 inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-3.5 text-sm font-medium text-black transition-transform duration-200 hover:-translate-y-0.5 sm:mt-10 sm:gap-3 sm:px-7 sm:py-4"
           >
             <Mail size={17} />
             Send me an email

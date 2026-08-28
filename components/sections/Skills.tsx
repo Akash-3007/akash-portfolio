@@ -4,8 +4,8 @@ import { profile } from "@/data/profile";
 
 export default function Skills() {
   return (
-    <section id="skills" className="scroll-mt-20 border-t border-line py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="skills" className="scroll-mt-20 border-t border-line py-16 sm:py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading number="02" label="SKILLS" title="Technologies & foundations" />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {profile.skills.map((group, i) => (
@@ -15,7 +15,7 @@ export default function Skills() {
                   group.exploring ? "border-accent/40 bg-surface" : "border-line bg-surface"
                 }`}
               >
-                <p className="mb-4 font-mono text-xs tracking-[0.25em] text-muted">
+                <p className="mb-4 font-mono text-[0.65rem] tracking-[0.16em] text-muted sm:text-xs sm:tracking-[0.25em]">
                   {group.group.toUpperCase()}
                   {group.exploring && (
                     <span className="ml-2 text-accent">/ LEARNING</span>
