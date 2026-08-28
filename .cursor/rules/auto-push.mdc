@@ -1,0 +1,14 @@
+---
+description: Commit and push to GitHub after finishing work
+alwaysApply: true
+---
+
+# Git: commit and push automatically
+
+After finishing a set of project changes, commit them and `git push origin HEAD` without asking.
+
+- Do not ask “want me to push?”
+- Do not force-push or skip hooks
+- Do not commit secrets (`.env`, credentials)
+- If there is nothing to commit, skip the commit; still push if the branch is ahead of origin
+- Use a short commit message that matches this repo’s style
