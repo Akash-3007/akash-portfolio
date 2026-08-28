@@ -7,6 +7,7 @@ import {
   siteKeywords,
   siteTitle,
   websiteJsonLd,
+  ogImage,
 } from "@/lib/seo";
 import "./globals.css";
 
@@ -56,17 +57,31 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "/",
     siteName: profile.name,
+    images: [
+      {
+        url: ogImage.url,
+        secureUrl: ogImage.url,
+        width: ogImage.width,
+        height: ogImage.height,
+        alt: ogImage.alt,
+        type: ogImage.type,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
+    images: [ogImage],
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${mono.variable}`}>
+      <head>
+        <link rel="image_src" href={`${profile.siteUrl}/og.png`} />
+      </head>
       <body className="font-sans antialiased">
         <a
           href="#main"

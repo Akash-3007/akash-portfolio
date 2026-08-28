@@ -5,6 +5,14 @@ export const siteTitle = profile.name;
 export const siteDescription =
   "BCA student exploring software, AI, and the web.";
 
+export const ogImage = {
+  url: "/og.png",
+  width: 1200,
+  height: 630,
+  alt: `${profile.name} — ${siteDescription}`,
+  type: "image/png",
+} as const;
+
 export const siteKeywords = [
   "Akash Kinjawadekar",
   "BCA student",
