@@ -7,6 +7,7 @@ import {
   siteKeywords,
   siteTitle,
   websiteJsonLd,
+  ogImage,
 } from "@/lib/seo";
 import "./globals.css";
 
@@ -56,11 +57,13 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "/",
     siteName: profile.name,
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
+    images: [ogImage],
   },
 };
 

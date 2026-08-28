@@ -1,3 +1,21 @@
+function resolveSiteUrl() {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+  if (explicit) return explicit;
+
+  const vercelProd = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  if (vercelProd) {
+    return vercelProd.startsWith("http")
+      ? vercelProd.replace(/\/$/, "")
+      : `https://${vercelProd}`;
+  }
+
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL.replace(/\/$/, "")}`;
+  }
+
+  return "https://your-domain-placeholder.example";
+}
+
 export const profile = {
   name: "Akash Kinjawadekar",
   initials: "AK",
@@ -10,10 +28,8 @@ export const profile = {
   ],
   location: "Bengaluru, Karnataka, India",
   email: "akashkinjawadekar7@gmail.com",
-  // Set NEXT_PUBLIC_SITE_URL on deploy (no trailing slash).
-  siteUrl:
-    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://your-domain-placeholder.example",
+  // Set NEXT_PUBLIC_SITE_URL on deploy (no trailing slash). Vercel sets this automatically.
+  siteUrl: resolveSiteUrl(),
   socials: {
     github: "https://github.com/Akash-3007",
     linkedin: "https://www.linkedin.com/in/akash-kinjawadekar-021683314/",

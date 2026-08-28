@@ -5,6 +5,14 @@ export const siteTitle = `${profile.name} — BCA Student & Developer`;
 export const siteDescription =
   "Akash Kinjawadekar is a BCA student at Christ University, Bangalore, building computer science fundamentals and exploring software development, AI/ML, and the web.";
 
+export const ogImage = {
+  url: "/og.jpg",
+  width: 1200,
+  height: 630,
+  alt: siteTitle,
+  type: "image/jpeg",
+} as const;
+
 export const siteKeywords = [
   "Akash Kinjawadekar",
   "BCA student",
