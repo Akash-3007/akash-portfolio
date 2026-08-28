@@ -1,0 +1,80 @@
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+main {
+  position: relative;
+}
+
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0c;
+  --foreground: #ededf0;
+  --muted: #8b8b93;
+  --border: #232328;
+  --accent: #8b7cf6;
+  --surface: #121216;
+  --surface-hover: #18181d;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+
+  background-size: 56px 56px;
+
+  mask-image: radial-gradient(
+    ellipse 70% 60% at 50% 35%,
+    black 30%,
+    transparent 75%
+  );
+}
+
+.link-underline {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 200ms ease;
+}
+
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+canvas {
+  display: block;
+}
+
+section {
+  position: relative;
+}
