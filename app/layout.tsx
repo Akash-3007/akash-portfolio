@@ -37,6 +37,9 @@ export const metadata: Metadata = {
   publisher: profile.name,
   applicationName: profile.name,
   category: "portfolio",
+  icons: {
+    icon: [{ url: "/icon", sizes: "32x32", type: "image/png" }],
+  },
   formatDetection: { email: false, telephone: false, address: false },
   alternates: { canonical: "/" },
   robots: {
@@ -54,13 +57,12 @@ export const metadata: Metadata = {
     title: siteTitle,
     description: siteDescription,
     type: "website",
-    locale: "en_IN",
-    url: "/",
+    locale: "en_US",
+    url: profile.siteUrl,
     siteName: profile.name,
     images: [
       {
         url: ogImage.url,
-        secureUrl: ogImage.url,
         width: ogImage.width,
         height: ogImage.height,
         alt: ogImage.alt,
@@ -78,9 +80,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${mono.variable}`}>
+    <html lang="en" prefix="og: https://ogp.me/ns#" className={`${inter.variable} ${mono.variable}`}>
       <head>
-        <link rel="image_src" href={`${profile.siteUrl}/og.png`} />
+        <meta property="og:image" content={ogImage.url} />
+        <meta property="og:image:type" content={ogImage.type} />
+        <meta property="og:image:width" content={String(ogImage.width)} />
+        <meta property="og:image:height" content={String(ogImage.height)} />
+        <link rel="image_src" href={ogImage.url} />
       </head>
       <body className="font-sans antialiased">
         <a

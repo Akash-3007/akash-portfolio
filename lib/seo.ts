@@ -6,11 +6,11 @@ export const siteDescription =
   "BCA student exploring software, AI, and the web.";
 
 export const ogImage = {
-  url: "/og.png",
+  url: `${profile.siteUrl}/og.jpg`,
   width: 1200,
   height: 630,
   alt: `${profile.name} — ${siteDescription}`,
-  type: "image/png",
+  type: "image/jpeg",
 } as const;
 
 export const siteKeywords = [
